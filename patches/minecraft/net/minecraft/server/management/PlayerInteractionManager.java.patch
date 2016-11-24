@@ -199,11 +199,16 @@
                  return flag1;
              }
          }
-@@ -330,8 +352,10 @@
-         }
-         else
+@@ -320,6 +342,7 @@
+ 
+     public EnumActionResult func_187250_a(EntityPlayer p_187250_1_, World p_187250_2_, ItemStack p_187250_3_, EnumHand p_187250_4_)
+     {
++        if (net.minecraftforge.common.ForgeHooks.onItemRightClick(p_187250_1_, p_187250_4_)) return net.minecraft.util.EnumActionResult.PASS;
+         if (this.field_73091_c == GameType.SPECTATOR)
          {
-+            if (net.minecraftforge.common.ForgeHooks.onItemRightClick(p_187250_1_, p_187250_4_)) return net.minecraft.util.EnumActionResult.PASS;
+             return EnumActionResult.PASS;
+@@ -332,6 +355,7 @@
+         {
              int i = p_187250_3_.func_190916_E();
              int j = p_187250_3_.func_77960_j();
 +            ItemStack copyBeforeUse = p_187250_3_.func_77946_l();

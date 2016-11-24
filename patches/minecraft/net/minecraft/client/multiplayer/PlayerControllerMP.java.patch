@@ -161,14 +161,14 @@
                      }
                  }
              }
-@@ -457,6 +490,7 @@
-             }
-             else
-             {
-+                if (net.minecraftforge.common.ForgeHooks.onItemRightClick(p_187101_1_, p_187101_3_)) return net.minecraft.util.EnumActionResult.PASS;
-                 int i = itemstack.func_190916_E();
-                 ActionResult<ItemStack> actionresult = itemstack.func_77957_a(p_187101_2_, p_187101_1_, p_187101_3_);
-                 ItemStack itemstack1 = (ItemStack)actionresult.func_188398_b();
+@@ -441,6 +474,7 @@
+ 
+     public EnumActionResult func_187101_a(EntityPlayer p_187101_1_, World p_187101_2_, EnumHand p_187101_3_)
+     {
++        if (net.minecraftforge.common.ForgeHooks.onItemRightClick(p_187101_1_, p_187101_3_)) return net.minecraft.util.EnumActionResult.PASS;
+         if (this.field_78779_k == GameType.SPECTATOR)
+         {
+             return EnumActionResult.PASS;
 @@ -464,6 +498,10 @@
                  if (itemstack1 != itemstack || itemstack1.func_190916_E() != i)
                  {
@@ -180,11 +180,19 @@
                  }
  
                  return actionresult.func_188397_a();
-@@ -500,6 +538,7 @@
+@@ -490,6 +528,7 @@
+ 
+     public EnumActionResult func_187097_a(EntityPlayer p_187097_1_, Entity p_187097_2_, EnumHand p_187097_3_)
+     {
++        if (net.minecraftforge.common.ForgeHooks.onInteractEntity(p_187097_1_, p_187097_2_, p_187097_3_)) return EnumActionResult.PASS;
+         this.func_78750_j();
+         this.field_78774_b.func_147297_a(new CPacketUseEntity(p_187097_2_, p_187097_3_));
+         return this.field_78779_k == GameType.SPECTATOR ? EnumActionResult.PASS : p_187097_1_.func_190775_a(p_187097_2_, p_187097_3_);
+@@ -497,6 +536,7 @@
+ 
+     public EnumActionResult func_187102_a(EntityPlayer p_187102_1_, Entity p_187102_2_, RayTraceResult p_187102_3_, EnumHand p_187102_4_)
+     {
++        if(net.minecraftforge.common.ForgeHooks.onInteractEntityAt(p_187102_1_, p_187102_2_, p_187102_3_, p_187102_4_)) return EnumActionResult.PASS;
          this.func_78750_j();
          Vec3d vec3d = new Vec3d(p_187102_3_.field_72307_f.field_72450_a - p_187102_2_.field_70165_t, p_187102_3_.field_72307_f.field_72448_b - p_187102_2_.field_70163_u, p_187102_3_.field_72307_f.field_72449_c - p_187102_2_.field_70161_v);
          this.field_78774_b.func_147297_a(new CPacketUseEntity(p_187102_2_, p_187102_4_, vec3d));
-+        if(net.minecraftforge.common.ForgeHooks.onInteractEntityAt(p_187102_1_, p_187102_2_, p_187102_3_, p_187102_4_)) return EnumActionResult.PASS;
-         return this.field_78779_k == GameType.SPECTATOR ? EnumActionResult.PASS : p_187102_2_.func_184199_a(p_187102_1_, vec3d, p_187102_4_);
-     }
- 

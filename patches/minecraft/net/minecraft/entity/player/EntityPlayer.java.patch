@@ -204,15 +204,7 @@
              p_70665_2_ = this.func_70672_c(p_70665_1_, p_70665_2_);
              float f = p_70665_2_;
              p_70665_2_ = Math.max(p_70665_2_ - this.func_110139_bj(), 0.0F);
-@@ -1111,6 +1177,7 @@
-         }
-         else
-         {
-+            if (net.minecraftforge.common.ForgeHooks.onInteractEntity(this, p_190775_1_, p_190775_2_)) return EnumActionResult.PASS;
-             ItemStack itemstack = this.func_184586_b(p_190775_2_);
-             ItemStack itemstack1 = itemstack.func_190926_b() ? ItemStack.field_190927_a : itemstack.func_77946_l();
- 
-@@ -1120,7 +1187,10 @@
+@@ -1120,7 +1186,10 @@
                  {
                      itemstack.func_190920_e(itemstack1.func_190916_E());
                  }
@@ -224,7 +216,7 @@
                  return EnumActionResult.SUCCESS;
              }
              else
-@@ -1136,6 +1206,7 @@
+@@ -1136,6 +1205,7 @@
                      {
                          if (itemstack.func_190926_b() && !this.field_71075_bZ.field_75098_d)
                          {
@@ -232,7 +224,7 @@
                              this.func_184611_a(p_190775_2_, ItemStack.field_190927_a);
                          }
  
-@@ -1161,6 +1232,7 @@
+@@ -1161,6 +1231,7 @@
  
      public void func_71059_n(Entity p_71059_1_)
      {
@@ -240,7 +232,7 @@
          if (p_71059_1_.func_70075_an())
          {
              if (!p_71059_1_.func_85031_j(this))
-@@ -1331,11 +1403,13 @@
+@@ -1331,11 +1402,13 @@
  
                          if (!itemstack1.func_190926_b() && entity instanceof EntityLivingBase)
                          {
@@ -254,7 +246,7 @@
                              }
                          }
  
-@@ -1441,6 +1515,8 @@
+@@ -1441,6 +1514,8 @@
  
      public EntityPlayer.SleepResult func_180469_a(BlockPos p_180469_1_)
      {
@@ -263,7 +255,7 @@
          EnumFacing enumfacing = (EnumFacing)this.field_70170_p.func_180495_p(p_180469_1_).func_177229_b(BlockHorizontal.field_185512_D);
  
          if (!this.field_70170_p.field_72995_K)
-@@ -1482,8 +1558,9 @@
+@@ -1482,8 +1557,9 @@
  
          this.func_70105_a(0.2F, 0.2F);
  
@@ -275,7 +267,7 @@
              float f1 = 0.5F + (float)enumfacing.func_82601_c() * 0.4F;
              float f = 0.5F + (float)enumfacing.func_82599_e() * 0.4F;
              this.func_175139_a(enumfacing);
-@@ -1530,13 +1607,14 @@
+@@ -1530,13 +1606,14 @@
  
      public void func_70999_a(boolean p_70999_1_, boolean p_70999_2_, boolean p_70999_3_)
      {
@@ -293,7 +285,7 @@
  
              if (blockpos == null)
              {
-@@ -1545,6 +1623,10 @@
+@@ -1545,6 +1622,10 @@
  
              this.func_70107_b((double)((float)blockpos.func_177958_n() + 0.5F), (double)((float)blockpos.func_177956_o() + 0.1F), (double)((float)blockpos.func_177952_p() + 0.5F));
          }
@@ -304,7 +296,7 @@
  
          this.field_71083_bS = false;
  
-@@ -1563,15 +1645,16 @@
+@@ -1563,15 +1644,16 @@
  
      private boolean func_175143_p()
      {
@@ -324,7 +316,7 @@
          {
              if (!p_180467_2_)
              {
-@@ -1586,16 +1669,17 @@
+@@ -1586,16 +1668,17 @@
          }
          else
          {
@@ -345,7 +337,7 @@
  
              switch (enumfacing)
              {
-@@ -1635,16 +1719,24 @@
+@@ -1635,16 +1718,24 @@
  
      public BlockPos func_180470_cg()
      {
@@ -372,7 +364,7 @@
          if (p_180473_1_ != null)
          {
              this.field_71077_c = p_180473_1_;
-@@ -1839,6 +1931,10 @@
+@@ -1839,6 +1930,10 @@
  
              super.func_180430_e(p_180430_1_, p_180430_2_);
          }
@@ -383,7 +375,7 @@
      }
  
      protected void func_71061_d_()
-@@ -2039,6 +2135,18 @@
+@@ -2039,6 +2134,18 @@
          this.field_175152_f = p_71049_1_.field_175152_f;
          this.field_71078_a = p_71049_1_.field_71078_a;
          this.func_184212_Q().func_187227_b(field_184827_bp, p_71049_1_.func_184212_Q().func_187225_a(field_184827_bp));
@@ -402,7 +394,7 @@
      }
  
      protected boolean func_70041_e_()
-@@ -2137,7 +2245,10 @@
+@@ -2137,7 +2244,10 @@
  
      public ITextComponent func_145748_c_()
      {
@@ -414,7 +406,7 @@
          itextcomponent.func_150256_b().func_150241_a(new ClickEvent(ClickEvent.Action.SUGGEST_COMMAND, "/msg " + this.func_70005_c_() + " "));
          itextcomponent.func_150256_b().func_150209_a(this.func_174823_aP());
          itextcomponent.func_150256_b().func_179989_a(this.func_70005_c_());
-@@ -2146,7 +2257,7 @@
+@@ -2146,7 +2256,7 @@
  
      public float func_70047_e()
      {
@@ -423,7 +415,7 @@
  
          if (this.func_70608_bn())
          {
-@@ -2362,6 +2473,162 @@
+@@ -2362,6 +2472,162 @@
          return this.field_71075_bZ.field_75098_d && this.func_70003_b(2, "");
      }
  
